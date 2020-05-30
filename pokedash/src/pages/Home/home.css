@@ -1,0 +1,19 @@
+.pokemon {
+    margin: 0 auto;
+    max-width: 1140px;
+    margin-top: 2.5rem;
+}
+
+.pokemon img {
+    height: 5rem;
+    width: 5rem;
+    display: block;
+}
+
+.pokemon h6 {
+    text-align: center;
+}
+
+.card-header {
+    padding: 0.75rem 0.45rem;
+}

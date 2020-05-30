@@ -1,0 +1,11 @@
+/*Menu*/
+.menu{
+    width: 100%;
+    background: #FF6666;
+}
+
+.menu img{
+    
+    height: 3rem;
+    width: 3rem;
+}

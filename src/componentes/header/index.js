@@ -1,8 +1,6 @@
 import React from 'react';
 import {
     Nav,
-    NavItem,
-    NavLink,
     NavbarBrand,
   } from 'reactstrap';
   import pokeball from './img/pokeball.png'; 

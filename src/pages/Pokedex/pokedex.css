@@ -1,0 +1,20 @@
+.pokedex span{
+    text-transform: capitalize;
+}
+
+.pokedex img {
+    height: 5rem;
+    width: 5rem;
+}
+
+.pokedex h3{
+    text-transform: capitalize ;
+}
+
+.row.align-items-center.description {
+    margin-top: 4%;
+}
+
+.profile{
+
+}

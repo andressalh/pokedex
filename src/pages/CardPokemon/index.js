@@ -3,7 +3,8 @@ import {
   Card, CardHeader,
 } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.css";
-import './cardPokemon.css'
+import './cardPokemon.css';
+import { Link } from 'react-router-dom';
 
 export default class CardPokemon extends Component {
   
@@ -26,27 +27,29 @@ export default class CardPokemon extends Component {
     }
 
     render (){
-      
-
-      
+            
       return (
         <div className="col-md-3 col-sm-6 mb-5">
-            <Card>
-              <CardHeader>
-                <h5>{this.state.pokemonNumber}</h5>
-                </CardHeader>
-              
-              <div> 
-              <img className="card-img-top rounded mx-auto mt-2" src={this.state.imgUrl} alt="pokemon"/>
-              </div>
-              <div>
-                <h6>
-                {this.state.name.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase()+ letter.substring(1)
-                )
-                .join(' ')}
-                </h6>
-              </div>
-            </Card>
+          
+          <Link className="LinkCard" to={`pokemon/${this.state.pokemonNumber}`}>
+            <Card className="card">
+                <CardHeader>
+                  <h5>{this.state.pokemonNumber}</h5>
+                  </CardHeader>
+                
+                <div> 
+                <img className="card-img-top rounded mx-auto mt-2" src={this.state.imgUrl} alt="pokemon"/>
+                </div>
+                <div>
+                  <h6>
+                  {this.state.name.toLowerCase().split(' ').map(letter => letter.charAt(0).toUpperCase()+ letter.substring(1)
+                  )
+                  .join(' ')}
+                  </h6>
+                </div>
+              </Card>
+          </Link>
+            
         </div>
         )
     }

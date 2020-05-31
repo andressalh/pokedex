@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import CardPokemon from  '../CardPokemon/index.js'
-import {
-  Card, CardHeader,
-} from 'reactstrap';
+
 import './home.css';
 import Header from '../../componentes/header/index.js';
 
@@ -36,7 +34,7 @@ export default class Home extends Component {
         
         </div>) 
         
-        : (<h1>Loading Pokemon</h1>) } 
+        : (<h1 className="h1">Loading Pokemon</h1>) } 
         
        </div>
       )

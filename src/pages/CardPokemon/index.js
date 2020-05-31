@@ -32,7 +32,7 @@ export default class CardPokemon extends Component {
         <div className="col-md-3 col-sm-6 mb-5">
           
           <Link className="LinkCard" to={`pokemon/${this.state.pokemonNumber}`}>
-            <Card className="card">
+            <Card className="card cardPokemon">
                 <CardHeader>
                   <h5>{this.state.pokemonNumber}</h5>
                   </CardHeader>

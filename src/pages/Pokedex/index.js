@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {
-    Card, CardHeader, CardBody, CardTitle, CardFooter,
-  } from 'reactstrap';
-  import './pokedex.css';
+    Card, CardHeader, CardBody, CardFooter, NavLink
+ } from 'reactstrap';
+import './pokedex.css';
+import {Link} from 'react-router-dom';
 
 const TYPE_COLORS = {
 bug: 'B1C12E',
@@ -95,8 +96,8 @@ export default class Pokedex extends Component {
             }
         } );
       
-        const height = pokemonRes.data.height;
-        const weight = pokemonRes.data.weight;
+        const height = pokemonRes.data.height * 10;
+        const weight = pokemonRes.data.weight * 100;
         
         const types = pokemonRes.data.types.map(type => type.type.name);
         const themeColor = `${TYPE_COLORS[types[types.length - 1]]}`;
@@ -340,17 +341,17 @@ export default class Pokedex extends Component {
                         <div className="col-md-6">
                             <div className="row" >
                                 <div className="col-6">
-                                    <h5>weigth:</h5>
+                                    <h5>Weigth:</h5>
                                 </div>
                                 <div className="col-6">
-                                    <h5>{this.state.weight} hg</h5>
+                                    <h5>{this.state.weight} G</h5>
                                 </div>
 
                                 <div className="col-6">
                                     <h5>Height:</h5>
                                 </div>
                                 <div className="col-6">
-                                    <h5>{this.state.height} dm</h5>
+                                    <h5>{this.state.height} Cm</h5>
                                 </div>
 
                                 <div className="col-6">
@@ -390,11 +391,20 @@ export default class Pokedex extends Component {
                     </div>
                 </CardBody>
                 <CardFooter>
-                    <h5>Data from{' '}  
-                        <a href="https://pokeapi.co/" target="_blank" className="card-link">
-                        PokeAPI.co
-                        </a>
-                        </h5>
+                    <div className="row">
+                        <div className="col-6">
+                            <h5>Data from{' '}  
+                                <a href="https://pokeapi.co/" target="_blank" className="card-link">
+                                PokeAPI.co
+                                </a>
+                            </h5>
+                        </div>
+                        <div className="col-6 text-right">
+                            <Link to="/">Back</Link>
+                            
+                        </div>
+                    </div>
+                    
                 </CardFooter>
                 </Card>
               

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {
-    Card, CardHeader, CardBody, CardTitle,
+    Card, CardHeader, CardBody, CardTitle, CardFooter,
   } from 'reactstrap';
   import './pokedex.css';
 
@@ -49,6 +49,7 @@ export default class Pokedex extends Component {
         eggGroups: '',
         catchRate: '',
         abilities: '',
+        hatchSteps: '',
         themeColor: '#EF5350'
       };
     
@@ -106,7 +107,7 @@ export default class Pokedex extends Component {
             .split('-')
             .map(s => s.charAt(0).toUpperCase() + s.substring(1))
             .join(' ')
-        });
+        }).join(', ');
 
         // get description
         await axios.get(pokemonSpeciesUrl).then(res => {
@@ -118,12 +119,20 @@ export default class Pokedex extends Component {
                 }
             });
             const catchRate = res.data['capture_rate'];
-            const eggGroups = res.data['egg_groups'].map( group => { return group.name} );
+            const hatchSteps = 255 * (res.data['hatch_counter'] + 1);
+
+
+            const eggGroups = res.data['egg_groups'].map( group => { 
+                return group.name
+                .split(' ')
+                .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+            }).join(', ');
             
             this.setState({
                 description,
                 catchRate,
                 eggGroups,
+                hatchSteps,
               });
         });
         
@@ -142,8 +151,7 @@ export default class Pokedex extends Component {
           },
           themeColor,
           height,
-          weight,
-          
+          weight, 
           abilities,  
         });
         
@@ -323,8 +331,9 @@ export default class Pokedex extends Component {
                         </div>   
                     </div>
                 </CardBody>
+                <hr />
                 <CardBody className="profile">
-                    <div className="row mt-1 ">
+                    <div className="row m-1 rowProfile">
                         <h3>Profile</h3>      
                     </div>
                     <div className="row">
@@ -354,17 +363,39 @@ export default class Pokedex extends Component {
                             </div>               
                         </div>
 
-                        <div className="col-6">
-                            <div className="col-6">
-                                <h5>Egg group:</h5>
-                            </div>
-                            <div className="col-6">
-                                <h5>{this.state.eggGroups}</h5>
-                                
-                            </div>
+                        <div className="col-md-6">
+                            <div className="row" >
+                                <div className="col-6">
+                                    <h5>Egg group:</h5>
+                                </div>
+                                <div className="col-6">
+                                    <h5>{this.state.eggGroups}</h5>
+                                </div>
+
+                                <div className="col-6">
+                                    <h5>Hatch Counter:</h5>
+                                </div>
+                                <div className="col-6">
+                                    <h5>{this.state.hatchSteps}</h5>
+                                </div>
+
+                                <div className="col-6">
+                                    <h5>Abilities:</h5>
+                                </div>
+                                <div className="col-6">
+                                    <h5>{this.state.abilities}</h5>
+                                </div>
+                            </div>                           
                         </div>
                     </div>
                 </CardBody>
+                <CardFooter>
+                    <h5>Data from{' '}  
+                        <a href="https://pokeapi.co/" target="_blank" className="card-link">
+                        PokeAPI.co
+                        </a>
+                        </h5>
+                </CardFooter>
                 </Card>
               
           </div>

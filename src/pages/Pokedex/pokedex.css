@@ -3,10 +3,12 @@
 }
 
 .pokedex img {
-    height: 5rem;
-    width: 5rem;
+    height: 10rem;
+    width: 10rem;
 }
-
+.col.pokedex {
+    margin: 4rem 0;
+}
 .pokedex h3{
     text-transform: capitalize ;
 }
@@ -28,3 +30,27 @@ a.card-link {
     color: #000;
     text-decoration: none;
 }
+
+
+
+@media all and (max-width: 500px) { 
+
+    .pokemon-card-body .row {
+        flex-direction: column;
+    }
+    .description p {
+        padding-top: 2rem;
+    }
+    .text {
+        padding: 0;
+    }
+    .div-progress {
+        margin-top: 1rem;
+    }
+    .m-1 {
+        margin: 0;
+    }
+
+    
+
+ }

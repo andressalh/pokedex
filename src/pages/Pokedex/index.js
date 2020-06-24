@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {
-    Card, CardHeader, CardBody, CardFooter, NavLink
+    Card, CardHeader, CardBody, CardFooter
  } from 'reactstrap';
 import './pokedex.css';
 import {Link} from 'react-router-dom';
@@ -188,17 +188,17 @@ export default class Pokedex extends Component {
                       </div>
                       </div>                      
                   </CardHeader>
-                 <CardBody>
+                 <CardBody className="pokemon-card-body">
                     <div className="row">
                         <div className="col-2"> 
-                        <img src={this.state.imgUrl} className="card-img-top rounded mx-auto mt-2"/>
+                        <img src={this.state.imgUrl} alt="pokemon" className="card-img-top rounded mx-auto mt-2"/>
                         </div>
                          
                         <div className="col-10"> 
                             <h3 className="mx-auto">{this.state.name}</h3>
 
                             <div className="row align-items-center">
-                                <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
+                                <div className={`col-12 col-md-${this.state.statTitleWidth} div-progress`}>
                                     HP
                                 </div>
                                 <div className={`col-12 col-md-${this.state.statBarWidth}`}> 
@@ -219,7 +219,7 @@ export default class Pokedex extends Component {
                             </div>
                                     
                             <div className="row align-items-center">
-                                <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
+                                <div className={`col-12 col-md-${this.state.statTitleWidth} div-progress`}>
                                     Speed
                                     
                                 </div>
@@ -241,7 +241,7 @@ export default class Pokedex extends Component {
                             </div>
 
                             <div className="row align-items-center">
-                                <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
+                                <div className={`col-12 col-md-${this.state.statTitleWidth} div-progress`}>
                                     Special Defense
                                 </div>
                                 <div className={`col-12 col-md-${this.state.statBarWidth}`}> 
@@ -263,7 +263,7 @@ export default class Pokedex extends Component {
 
 
                             <div className="row align-items-center">
-                                <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
+                                <div className={`col-12 col-md-${this.state.statTitleWidth} div-progress`}>
                                     Special Attack
                                 </div>
                                 <div className={`col-12 col-md-${this.state.statBarWidth}`}> 
@@ -284,7 +284,7 @@ export default class Pokedex extends Component {
                             </div>
 
                             <div className="row align-items-center">
-                                <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
+                                <div className={`col-12 col-md-${this.state.statTitleWidth} div-progress `}>
                                     Defense
                                 </div>
                                 <div className={`col-12 col-md-${this.state.statBarWidth}`}> 
@@ -305,7 +305,7 @@ export default class Pokedex extends Component {
                             </div>
 
                             <div className="row align-items-center">
-                                <div className={`col-12 col-md-${this.state.statTitleWidth}`}>
+                                <div className={`col-12 col-md-${this.state.statTitleWidth} div-progress `}>
                                     Attack
                                 </div>
                                 <div className={`col-12 col-md-${this.state.statBarWidth}`}> 
@@ -327,7 +327,7 @@ export default class Pokedex extends Component {
                         </div> 
                     </div>
                     <div className="row align-items-center description">
-                        <div className="col-10">
+                        <div className="col-10 text">
                             <p>{this.state.description}</p>
                         </div>   
                     </div>
@@ -394,7 +394,7 @@ export default class Pokedex extends Component {
                     <div className="row">
                         <div className="col-6">
                             <h5>Data from{' '}  
-                                <a href="https://pokeapi.co/" target="_blank" className="card-link">
+                                <a href="https://pokeapi.co/" rel="noopener noreferrer"  target="_blank" className="card-link">
                                 PokeAPI.co
                                 </a>
                             </h5>
@@ -413,8 +413,3 @@ export default class Pokedex extends Component {
     }
       
   }
-
-
-
-
-     

@@ -5,6 +5,7 @@ import {
  } from 'reactstrap';
 import './pokedex.css';
 import {Link} from 'react-router-dom';
+import { FiArrowLeft} from 'react-icons/fi';
 
 const TYPE_COLORS = {
 bug: 'B1C12E',
@@ -400,7 +401,8 @@ export default class Pokedex extends Component {
                             </h5>
                         </div>
                         <div className="col-6 text-right">
-                            <Link to="/">Back</Link>
+                            <Link to="/">
+                            <FiArrowLeft/>Back</Link>
                             
                         </div>
                     </div>
